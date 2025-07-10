@@ -1,0 +1,9 @@
+/your-project-folder
+│
+├── index.html
+├── style.css
+├── pdfs
+│   ├── example1.pdf
+│   └── example2.pdf
+└── assets
+    └── bootstrap.min.css

@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PRAY BELIEVE RECEIVE - Book Store</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="Discover and buy the best books at PRAY BELIEVE RECEIVE. Explore new arrivals, bestsellers, and exclusive deals.">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap');
+        :root {
+            --primary: #1e293b;
+            --primary-light: #334155;
+            --accent: #fbbf24;
+            --accent-dark: #b7791f;
+            --bg-gradient: linear-gradient(135deg, #eab308 0%, #b7791f 100%);
+            --white: #fff;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --danger: #ef4444;
+            --success: #22c55e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--primary);
+        }
+        /* Navbar */
+        .navbar-custom {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(30, 34, 90, 0.07);
+            border-radius: 0 0 18px 18px;
+            padding: 0.8rem 0;
+        }
+        .navbar-brand span {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--primary);
+        }
+        .navbar-custom .nav-link {
+            color: var(--primary-light);
+            font-weight: 500;
+            margin-right: 1.2rem;
+            letter-spacing: 0.02em;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+        }
+        .navbar-custom .nav-link.active,
+        .navbar-custom .nav-link:hover {
+            color: var(--accent);
+        }
+        .header-actions a {
+            color: var(--primary-light);
+            margin-left: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.05rem;
+        }
+        .header-actions a:hover {
+            color: var(--accent);
+        }
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(251,191,36,0.95) 0%, rgba(183,121,31,0.95) 100%);
+            color: var(--primary);
+            border-radius: 18px;
+            margin: 2rem auto 2.5rem auto;
+            padding: 3.5rem 2rem 3.5rem 2rem;
+            box-shadow: 0 4px 32px rgba(30, 34, 90, 0.09), 0 0 0 3px #00000022;
+            /* Added black shadow line */
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+        .hero-content h1 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-light);
+        }
+        .hero-content .btn {
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 24px;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(251,191,36,0.07);
+            transition: background 0.2s, color 0.2s;
+            border: none;
+        }
+        .hero-content .btn:hover {
+            background: var(--accent-dark);
+            color: var(--white);
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(30, 34, 90, 0.13);
+        }
+        /* Section Title */
+        .section-title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+            text-align: center;
+        }
+        /* Categories */
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+        .category-list .category {
+            background: var(--white);
+            color: var(--accent-dark);
+            border-radius: 18px;
+            padding: 0.7rem 1.7rem;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(251,191,36,0.07);
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            border: 2px solid var(--gray-light);
+            text-decoration: none;
+        }
+        .category-list .category:hover,
+        .category-list .category.active {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        /* Free Books Section */
+        .free-books-section {
+            background: #ffa200;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(191,161,74,0.09), 0 0 0 3px #00000022;
+            /* Added black shadow line */
+            padding: 2.5rem 2rem;
+            margin: 3rem auto 2rem auto;
+            max-width: 1200px;
+            border: 1.5px solid #0a0a09;
+            /* Keep gold border for accent */
+        }
+        .free-books-section .section-title {
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            letter-spacing: 0.01em;
+        }
+        .free-book-card {
+            background:#ff9b19;
+            border-radius: 14px;
+            box-shadow: 0 1px 6px rgba(191,161,74,0.08);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1.5px solid #000000;
+        }
+        .free-book-card img {
+            border: 2px solid #bfa14a;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.09);
+        }
+        .free-book-info h4 {
+            color: #7c651a;
+        }
+        .download-btn {
+            background: linear-gradient(90deg, #bfa14a 0%, #ffe066 100%);
+            color: #111;
+            border: none;
+            border-radius: 24px;
+            padding: 0.5rem 1.3rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 1px 4px rgba(191,161,74,0.13);
+        }
+        .download-btn:hover {
+            background: linear-gradient(90deg, #bbf2c0 0%, #ffaa00 100%);
+            color: #7c651a;
+        }
+        .download-btn.preview {
+            background: #fff;
+            color: #090909;
+            border: 1.5px solid #bfa14a;
+            box-shadow: none;
+        }
+        .download-btn.preview:hover {
+            background: #bfa14a;
+            color: #fff;
+        }
+        /* Account Modal */
+        #accountModal .modal-header {
+            border-bottom: none;
+            background: linear-gradient(90deg, #bfa14a 0%, #ffe066 100%);
+            border-radius: 18px 18px 0 0;
+        }
+        #accountModal .modal-title {
+            color: #7c651a !important;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+        #accountModal .btn-close {
+            filter: invert(60%) sepia(80%) saturate(400%) hue-rotate(10deg) brightness(1.2);
+        }
+        #accountModal .nav-link.active {
+            background: #ffe066 !important;
+            color: #7c651a !important;
+            border: none;
+        }
+        #accountModal .nav-link {
+            color: #bfa14a !important;
+            border: none;
+        }
+        #accountModal .btn {
+            background: linear-gradient(90deg, #bfa14a 0%, #ffe066 100%) !important;
+            color: #111 !important;
+            font-weight: 600;
+            border-radius: 24px;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.07);
+            border: none;
+        }
+        #accountModal .btn:hover {
+            background: linear-gradient(90deg, #ffe066 0%, #bfa14a 100%) !important;
+            color: #7c651a !important;
+        }
+        #accountModal .modal-body {
+            background: #fffbe6;
+        }
+        #accountModal .input-group-text {
+            background: #fffbe6;
+            color: #bfa14a;
+            border: 1.5px solid #ffe066;
+        }
+        #accountModal .form-control {
+            background: #fff;
+            border: 1.5px solid #ffe066;
+        }
+        #accountModal .form-label {
+            color: #7c651a;
+        }
+        #accountModal .nav-tabs {
+            background: transparent;
+        }
+        #accountModal .nav-link {
+            border-radius: 24px 24px 0 0;
+            font-weight: 600;
+        }
+        #accountModal .text-primary {
+            color: #bfa14a !important;
+        }
+        #accountModal .btn-light {
+            border: 1.5px solid #ffe066 !important;
+            color: #7c651a !important;
+            background: #fffbe6 !important;
+        }
+        #accountModal .btn-light:hover {
+            background: #ffe066 !important;
+            color: #7c651a !important;
+        }
+        @media (max-width: 600px) {
+            #cartItems .cart-item-modern {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 0.7rem;
+            }
+            #cartItems .cart-item-actions {
+                flex-direction: row;
+                gap: 0.7rem;
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+        /* Modern Free Books Section Styles */
+        .free-book-modern {
+            background: #95f21394; /* Changed from #fff to match the site's gold theme */
+            border-radius: 18px;
+            transition: box-shadow 0.18s, transform 0.18s;
+            box-shadow: 0 2px 12px rgba(191,161,74,0.07);
+            border: 1.5px solid #000000;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+        .modern-book-img {
+            width: 90px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.09);
+            background: #00e0f9;
+        }
+        .modern-book-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #010100;
+            margin-bottom: 0.5rem;
+        }
+        .modern-book-desc {
+            font-size: 1rem;
+            color: #111111;
+            margin-bottom: 1.2rem;
+            flex: 1 1 auto;
+        }
+        .download-btn {
+            background: linear-gradient(90deg, #bfa14a 0%, #ffe066 100%);
+            color:#111111;
+            border:#111111;
+            border-radius: 24px;
+            padding: 0.5rem 1.3rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 1px 4px rgba(191,161,74,0.13);
+        }
+        .download-btn:hover {
+            background: linear-gradient(90deg, #ffe066 0%, #bfa14a 100%);
+            color: #7c651a;
+        }
+        .download-btn.preview {
+            background: #fff;
+            color: #020202;
+            border: 1.5px solid #000000;
+            box-shadow: none;
+        }
+        .download-btn.preview:hover {
+            background: #bfa14a;
+            color: #fff;
+        }
+        @media (max-width: 991px) {
+            .free-books-section {
+                padding: 1.5rem 0.5rem;
+            }
+            .free-book-modern {
+                min-height: 380px;
+            }
+        }
+        @media (max-width: 767px) {
+            .free-books-section {
+                padding: 1rem 0.2rem;
+            }
+            .modern-book-img {
+                width: 70px;
+                height: 100px;
+            }
+            .free-book-modern {
+                min-height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar" style="background: var(--white); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo" style="font-size: 2.1rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 0.7rem;">
+                <!-- Alternative Black & White Bible Logo (single book with cross) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="margin-right: 0.6rem;">
+                    <!-- Book shape -->
+                    <rect x="10" y="8" width="34" height="38" rx="5" fill="#fff" stroke="#111" stroke-width="2.5"/>
+                    <!-- Book spine -->
+                    <rect x="10" y="8" width="7" height="38" rx="2" fill="#f5f6fa" stroke="#bbb" stroke-width="1.5"/>
+                    <!-- Cross on cover -->
+                    <line x1="27" y1="20" x2="27" y2="36" stroke="#111" stroke-width="2"/>
+                    <line x1="21" y1="28" x2="33" y2="28" stroke="#111" stroke-width="2"/>
+                    <!-- Page lines -->
+                    <line x1="17" y1="14" x2="39" y2="14" stroke="#eee" stroke-width="1"/>
+                    <line x1="17" y1="18" x2="39" y2="18" stroke="#eee" stroke-width="1"/>
+                    <line x1="17" y1="22" x2="39" y2="22" stroke="#eee" stroke-width="1"/>
+                </svg>
+                PRAY BELIEVE RECEIVE
+            </a>
+            <ul class="nav-links" style="display: flex; gap: 2rem; list-style: none; margin-bottom: 0;">
+                <li><a href="bible-studies.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Bible Studies</a></li>
+                <li><a href="books.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Books</a></li>
+                <li><a href="about.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">About</a></li>
+                <li><a href="contact.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section mt-4 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 hero-content">
+                    <h1>WELCOME TO PRAY BELIEVE AND RECEIVE COMMUNITY</h1>
+                    <p>And whatever you ask in prayer you will receive if you have faith<br><strong>Luke 1:37</strong></p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Books" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories">
+        <div class="container">
+            <div class="section-title" style="font-weight: bold;">Categories</div>
+            <div class="category-list">
+                <a class="category active" href="bible-studies.html">BIBLE STUDIES</a>
+                <a class="category" href="books.html">BOOKS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Books Section -->
+    <section class="free-books-section">
+        <div class="section-title mb-4">Free Books</div>
+        <div class="container">
+            <div class="row g-4">
+                <!-- Book Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" alt="Grace for Today" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Grace for Today</h5>
+                            <p class="card-text modern-book-desc">Download this uplifting devotional and start your day with encouragement and hope.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewGrace">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg" alt="Daily Inspirations" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Daily Inspirations</h5>
+                            <p class="card-text modern-book-desc">Enjoy a collection of inspiring stories and scriptures for your spiritual journey.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewDaily">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10958345-L.jpg" alt="The Power of Prayer" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">The Power of Prayer</h5>
+                            <p class="card-text modern-book-desc">Discover how prayer can transform your life and deepen your relationship with God.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewPrayer">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg" alt="Walking in Faith" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Walking in Faith</h5>
+                            <p class="card-text modern-book-desc">Step into a journey of faith with practical steps and biblical encouragement.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewFaith">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10498723-L.jpg" alt="Hope for Tomorrow" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Hope for Tomorrow</h5>
+                            <p class="card-text modern-book-desc">Find hope and encouragement for the future with these inspiring devotions.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewHope">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10523339-L.jpg" alt="Strength for the Journey" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Strength for the Journey</h5>
+                            <p class="card-text modern-book-desc">Receive strength and courage for every season of life through God's Word.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewStrength">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10958346-L.jpg" alt="Light in the Darkness" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Light in the Darkness</h5>
+                            <p class="card-text modern-book-desc">Let God's light shine in your life with these powerful and uplifting readings.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewLight">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book Card 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card free-book-modern h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://covers.openlibrary.org/b/id/10523340-L.jpg" alt="Peaceful Moments" class="modern-book-img mb-3">
+                            <h5 class="card-title modern-book-title">Peaceful Moments</h5>
+                            <p class="card-text modern-book-desc">Experience God's peace in your heart and mind with these calming devotions.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="download-btn" data-bs-toggle="modal" data-bs-target="#accountModal">Download PDF</a>
+                                <a href="#" class="download-btn preview" data-bs-toggle="modal" data-bs-target="#previewPeace">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Modals -->
+    <div class="modal fade" id="previewGrace" tabindex="-1" aria-labelledby="previewGraceLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewGraceLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Grace for Today - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" alt="Grace for Today" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Grace for Today</strong> is a daily devotional designed to help you start each morning with gratitude, reflection, and hope. Each entry features a scripture, a short meditation, and a heartfelt prayer, guiding you to focus on God's unending grace and love. This book is perfect for anyone seeking encouragement and spiritual renewal in their everyday life.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Daily scripture and meditation</li>
+                  <li>Short prayers for each day</li>
+                  <li>Encouragement for all seasons</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(Lamentations 3:22-23)</span> "The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewDaily" tabindex="-1" aria-labelledby="previewDailyLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewDailyLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Daily Inspirations - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg" alt="Daily Inspirations" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Daily Inspirations</strong> offers a collection of uplifting stories and scriptures for every day of the year. Each page is crafted to inspire hope, strengthen your faith, and provide practical wisdom for your spiritual journey. Perfect for morning reflection or evening wind-down.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>365 daily inspirations</li>
+                  <li>Real-life stories and lessons</li>
+                  <li>Scriptures for every situation</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(Psalm 119:105)</span> "Your word is a lamp to my feet and a light to my path."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewPrayer" tabindex="-1" aria-labelledby="previewPrayerLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewPrayerLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">The Power of Prayer - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10958345-L.jpg" alt="The Power of Prayer" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>The Power of Prayer</strong> explores the transformative power of prayer in the life of a believer. Discover how consistent, heartfelt prayer can deepen your relationship with God, bring peace to your soul, and unlock the miraculous in your life.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Insights on effective prayer</li>
+                  <li>Building a consistent prayer life</li>
+                  <li>Testimonies of prayer and miracles</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(1 Thessalonians 5:17)</span> "Pray without ceasing."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewFaith" tabindex="-1" aria-labelledby="previewFaithLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewFaithLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Walking in Faith - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg" alt="Walking in Faith" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Walking in Faith</strong> provides practical steps and biblical insights to help you live a life of faith and obedience. Learn how to trust God in every situation and experience the joy and peace that comes from walking closely with Him.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Practical faith-building exercises</li>
+                  <li>Understanding God's guidance</li>
+                  <li>Overcoming doubts and fears</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(2 Corinthians 5:7)</span> "For we walk by faith, not by sight."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewHope" tabindex="-1" aria-labelledby="previewHopeLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewHopeLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Hope for Tomorrow - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10498723-L.jpg" alt="Hope for Tomorrow" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Hope for Tomorrow</strong> is a collection of inspiring devotions that remind you of God's promises and faithfulness. Each devotion is crafted to fill your heart with hope and encourage you to trust in God's perfect plan for your life.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Devotions for every day of the year</li>
+                  <li>Scriptures and prayers included</li>
+                  <li>Encouragement to trust God's timing</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(Jeremiah 29:11)</span> "For I know the plans I have for you... plans to give you hope and a future."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewStrength" tabindex="-1" aria-labelledby="previewStrengthLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewStrengthLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Strength for the Journey - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="container-fluid">
+              <div class="row align-items-center g-3">
+                <div class="col-md-4 text-center">
+                  <img src="https://covers.openlibrary.org/b/id/10523339-L.jpg" alt="Strength for the Journey" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+                </div>
+                <div class="col-md-8">
+                  <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                  <p style="font-size:1.08rem; margin-bottom:1rem;">
+                    <strong>Strength for the Journey</strong> offers biblical wisdom and practical advice for finding strength and courage in every season of life. Learn to rely on God's promises and experience the power of His Word in your life.
+                  </p>
+                  <ul class="mt-3 mb-3" style="font-size:1rem; padding-left:1.2rem;">
+                    <li>Finding strength in God's promises</li>
+                    <li>Overcoming challenges with faith</li>
+                    <li>Encouragement for every step of your journey</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(Philippians 4:13)</span> "I can do all things through Christ who strengthens me."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewLight" tabindex="-1" aria-labelledby="previewLightLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewLightLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Light in the Darkness - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10958346-L.jpg" alt="Light in the Darkness" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Light in the Darkness</strong> is a powerful collection of readings and reflections designed to illuminate your path and strengthen your faith. Let these words of hope and encouragement guide you through life's challenges.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Uplifting readings for every day</li>
+                  <li>Scriptures to light your way</li>
+                  <li>Encouragement to overcome darkness</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(John 1:5)</span> "The light shines in the darkness, and the darkness has not overcome it."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="previewPeace" tabindex="-1" aria-labelledby="previewPeaceLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="border-radius:18px;">
+          <div class="modal-header" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-radius:18px 18px 0 0;">
+            <h5 class="modal-title fw-bold" id="previewPeaceLabel" style="color:#7c651a;font-family:'Montserrat',Arial,sans-serif;">Peaceful Moments - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#fffbe6; max-height:70vh; overflow-y:auto;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://covers.openlibrary.org/b/id/10523340-L.jpg" alt="Peaceful Moments" style="width:120px;height:170px;object-fit:cover;border-radius:10px;border:2px solid #bfa14a;box-shadow:0 2px 8px rgba(191,161,74,0.13);background:#fff;">
+              </div>
+              <div class="col-md-8">
+                <h4 class="fw-bold" style="color:#bfa14a;">Summary</h4>
+                <p style="font-size:1.08rem;">
+                  <strong>Peaceful Moments</strong> invites you to pause and experience the peace of God in your life. Through calming devotions and reflective prayers, this book helps you find rest for your soul and tranquility in God's presence.
+                </p>
+                <ul class="mt-3" style="font-size:1rem;">
+                  <li>Devotions for finding peace</li>
+                  <li>Prayers for calm and rest</li>
+                  <li>Scriptures on God's peace</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="blockquote mt-5 pt-4" style="border-left:4px solid #bfa14a;padding-left:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">
+                <span style="color:#bfa14a;">(John 14:27)</span> "Peace I leave with you; my peace I give you."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account/Create Account Modal -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content" style="border-radius:18px; box-shadow:0 4px 24px rgba(191,161,74,0.13); overflow:hidden;">
+          <div class="modal-header py-3 px-3" style="background:linear-gradient(90deg,#ffe066 0%,#bfa14a 100%); border-bottom:none;">
+            <div class="w-100 text-center">
+              <span style="background:#fffbe6;border-radius:50%;padding:0.5rem;display:inline-flex;align-items:center;justify-content:center;">
+                <i class="icon icon-user" style="font-size:1.5rem; color:#bfa14a;"></i>
+              </span>
+              <h5 class="modal-title fw-bold mt-2 mb-1" id="accountModalLabel" style="color:#7c651a; font-family:'Montserrat',Arial,sans-serif; font-size:1.1rem; letter-spacing:0.01em;">
+                Access Free Book Downloads
+              </h5>
+              <div style="font-size:0.97rem; color:#7c651a;">Sign up or sign in to download</div>
+            </div>
+            <button type="button" class="btn-close position-absolute end-0 top-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body px-3 py-3" style="background:#fffbe6;">
+            <div class="d-flex justify-content-center mb-3">
+              <ul class="nav nav-pills gap-1" id="accountTab" role="tablist" style="background:#fff; border-radius:20px; padding:0.2rem 0.3rem;">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active px-3 py-1 rounded-pill" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-tab-pane" type="button" role="tab" aria-controls="signup-tab-pane" aria-selected="true" style="font-weight:600; font-size:0.97rem;">Sign Up</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link px-3 py-1 rounded-pill" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin-tab-pane" type="button" role="tab" aria-controls="signin-tab-pane" aria-selected="false" style="font-weight:600; font-size:0.97rem;">Sign In</button>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content" id="accountTabContent">
+              <!-- Sign Up -->
+              <div class="tab-pane fade show active" id="signup-tab-pane" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
+                <form autocomplete="off">
+                  <div class="mb-2">
+                    <label for="signupName" class="form-label" style="color:#000000;font-weight:600;font-size:0.97rem;">Name</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" style="background:#fffbe6; color:#bfa14a; border:1.5px solid #ffe066;"><i class="icon icon-user"></i></span>
+                      <input type="text" class="form-control" id="signupName" placeholder="Your Name" required style="background:#fff; border:1.5px solid #ffe066; font-size:0.97rem;">
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <label for="signupEmail" class="form-label" style="color:#7c651a;font-weight:600;font-size:0.97rem;">Email</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" style="background:#fffbe6; color:#bfa14a; border:1.5px solid #ffe066;"><i class="icon icon-mail"></i></span>
+                      <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com" required style="background:#fff; border:1.5px solid #ffe066; font-size:0.97rem;">
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <label for="signupPassword" class="form-label" style="color:#7c651a;font-weight:600;font-size:0.97rem;">Password</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" style="background:#fffbe6; color:#bfa14a; border:1.5px solid #ffe066;"><i class="icon icon-lock"></i></span>
+                      <input type="password" class="form-control" id="signupPassword" placeholder="Password" required style="background:#fff; border:1.5px solid #ffe066; font-size:0.97rem;">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn w-100 mb-2" style="background:linear-gradient(90deg,#bfa14a 0%,#ffe066 100%); color:#111; font-weight:700; border-radius:18px; font-size:1rem; box-shadow:0 2px 8px rgba(191,161,74,0.07); border:none;">Create Account</button>
+                  <div class="text-center mt-1" style="font-size:0.95rem;">
+                    Already have an account?
+                    <a href="#" class="text-primary" style="color:#bfa14a;font-weight:600;" onclick="event.preventDefault(); document.getElementById('signin-tab').click();">Sign In</a>
+                  </div>
+                </form>
+              </div>
+              <!-- Sign In -->
+              <div class="tab-pane fade" id="signin-tab-pane" role="tabpanel" aria-labelledby="signin-tab" tabindex="0">
+                <form autocomplete="off">
+                  <div class="mb-2">
+                    <label for="loginEmail" class="form-label" style="color:#7c651a;font-weight:600;font-size:0.97rem;">Email</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" style="background:#fffbe6; color:#bfa14a; border:1.5px solid #ffe066;"><i class="icon icon-mail"></i></span>
+                      <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required style="background:#fff; border:1.5px solid #ffe066; font-size:0.97rem;">
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <label for="loginPassword" class="form-label" style="color:#7c651a;font-weight:600;font-size:0.97rem;">Password</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" style="background:#fffbe6; color:#bfa14a; border:1.5px solid #ffe066;"><i class="icon icon-lock"></i></span>
+                      <input type="password" class="form-control" id="loginPassword" placeholder="Password" required style="background:#fff; border:1.5px solid #ffe066; font-size:0.97rem;">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div>
+                      <input type="checkbox" id="rememberMe" class="form-check-input me-1">
+                      <label for="rememberMe" class="form-check-label" style="font-size:0.95rem; color:#7c651a;">Remember me</label>
+                    </div>
+                    <a href="#" class="text-primary" style="font-size:0.95rem; color:#bfa14a; font-weight:600;">Forgot?</a>
+                  </div>
+                  <button type="submit" class="btn w-100 mb-2" style="background:linear-gradient(90deg,#bfa14a 0%,#ffe066 100%); color:#111; font-weight:700; border-radius:18px; font-size:1rem; box-shadow:0 2px 8px rgba(191,161,74,0.07); border:none;">Sign In</button>
+                  <div class="text-center mt-1" style="font-size:0.95rem;">
+                    Don't have an account?
+                    <a href="#" class="text-primary" style="color:#bfa14a;font-weight:600;" onclick="event.preventDefault(); document.getElementById('signup-tab').click();">Sign Up</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="text-center mt-3 mb-2" style="font-size:0.95rem;">
+              <span style="color:#bfa14a;">or sign in with</span>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mb-2">
+              <button type="button" class="btn btn-light border d-flex align-items-center gap-2 px-2 py-1" style="border:1.5px solid #ffe066 !important; color:#7c651a !important; background:#fffbe6 !important; font-weight:600; font-size:0.97rem;">
+                <img src="https://img.icons8.com/color/20/000000/google-logo.png" alt="Google" style="width:18px;height:18px;"> Google
+              </button>
+              <button type="button" class="btn btn-light border d-flex align-items-center gap-2 px-2 py-1" style="border:1.5px solid #ffe066 !important; color:#7c651a !important; background:#fffbe6 !important; font-weight:600; font-size:0.97rem;">
+                <img src="https://img.icons8.com/ios-filled/20/bfa14a/facebook-new.png" alt="Facebook" style="width:18px;height:18px;"> Facebook
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <!-- Removed Home and Categories links -->
+            <div>
+                &copy; 2025 PRAY BELIEVE RECEIVE. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <!-- Add this script before </body> -->
+<script>
+  // Store the requested book title globally
+  let requestedBookTitle = null;
+
+  // Map book titles to PDF URLs
+  const pdfMap = {
+    'Grace for Today': 'pdfs/grace-for-today.pdf',
+    'Daily Inspirations': 'pdfs/daily-inspirations.pdf',
+    'The Power of Prayer': 'pdfs/power-of-prayer.pdf',
+    'Walking in Faith': 'pdfs/walking-in-faith.pdf',
+    'Hope for Tomorrow': 'pdfs/hope-for-tomorrow.pdf',
+    'Strength for the Journey': 'pdfs/strength-for-the-journey.pdf',
+    'Light in the Darkness': 'pdfs/light-in-the-darkness.pdf',
+    'Peaceful Moments': 'pdfs/peaceful-moments.pdf'
+  };
+
+  // Always show modal and remember which book was clicked
+  function setupDownloadButtons() {
+    document.querySelectorAll('.download-btn').forEach(function(btn) {
+      if (btn.classList.contains('preview')) return; // Skip preview buttons
+      btn.setAttribute('href', '#');
+      btn.setAttribute('data-bs-toggle', 'modal');
+      btn.setAttribute('data-bs-target', '#accountModal');
+      btn.removeAttribute('target');
+      btn.textContent = 'Download PDF';
+
+      btn.addEventListener('click', function(e) {
+        // Store the book title for download after auth
+        const card = btn.closest('.card');
+        if (card) {
+          const titleElem = card.querySelector('.modern-book-title');
+          if (titleElem) {
+            requestedBookTitle = titleElem.textContent.trim();
+          }
+        }
+      });
+    });
+  }
+
+  // Utility: Set user as authenticated
+  function setUserAuthenticated() {
+    localStorage.setItem('userAuthenticated', 'true');
+  }
+
+  // After sign up/sign in, trigger download if a book was requested
+  function triggerDownloadAfterAuth() {
+    if (requestedBookTitle && pdfMap[requestedBookTitle]) {
+      // Create a temporary link and click it to start download
+      const link = document.createElement('a');
+      link.href = pdfMap[requestedBookTitle];
+      link.target = '_blank';
+      link.download = '';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      requestedBookTitle = null;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setupDownloadButtons();
+
+    // Sign Up
+    document.querySelectorAll('#signup-tab-pane form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        setUserAuthenticated();
+        var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('accountModal'));
+        modal.hide();
+        alert('Account created! Your download will begin.');
+        setTimeout(triggerDownloadAfterAuth, 400); // Wait for modal to hide
+      });
+    });
+    // Sign In
+    document.querySelectorAll('#signin-tab-pane form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        setUserAuthenticated();
+        var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('accountModal'));
+        modal.hide();
+        alert('Signed in! Your download will begin.');
+        setTimeout(triggerDownloadAfterAuth, 400);
+      });
+    });
+  });
+</script>
+</body>
+</html>

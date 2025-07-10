@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Downloads</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>PDF Downloads</h1>
+    </nav>
+    <div class="container">
+        <h2>Available Studies</h2>
+        <div class="study-card">
+            <h3>Faith Foundations</h3>
+            <p>A 6-week study exploring the core beliefs of Christianity.</p>
+            <a href="auth.html" class="download-btn">Download PDF</a>
+        </div>
+        <div class="study-card">
+            <h3>Book of John Study</h3>
+            <p>Journey through the Gospel of John with daily readings.</p>
+            <a href="auth.html" class="download-btn">Download PDF</a>
+        </div>
+        <!-- Add more study cards as needed -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | Professional Book Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-yellow: #FFD600;
+            --primary-yellow-dark: #FFC300;
+            --black: #181818;
+            --white: #fff;
+            --gray-bg: #232323;
+            --gray-border: #333;
+            --input-bg: #222;
+            --input-text: #fff;
+            --input-placeholder: #bbb;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gray-bg);
+            color: var(--white);
+            margin: 0;
+            min-height: 100vh;
+        }
+        .checkout-container {
+            max-width: 480px;
+            margin: 3rem auto;
+            background: var(--black);
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            border: 1.5px solid var(--primary-yellow);
+        }
+        h2 {
+            margin-bottom: 2rem;
+            color: var(--primary-yellow);
+            letter-spacing: 1px;
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        label {
+            display: block;
+            margin-top: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-yellow);
+            letter-spacing: 0.5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.4rem;
+            border-radius: 8px;
+            border: 1.5px solid var(--gray-border);
+            background: var(--input-bg);
+            color: var(--input-text);
+            font-size: 1rem;
+            transition: border 0.2s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+            background: #191919;
+        }
+        input::placeholder {
+            color: var(--input-placeholder);
+            opacity: 1;
+        }
+        .summary {
+            margin: 2rem 0 1.5rem 0;
+            background: #222;
+            border-radius: 10px;
+            padding: 1.2rem 1rem;
+            color: var(--white);
+            border: 1px solid var(--primary-yellow-dark);
+            font-size: 1.05rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+        }
+        .summary strong {
+            color: var(--primary-yellow);
+            font-size: 1.1rem;
+        }
+        .summary b {
+            color: var(--primary-yellow-dark);
+            font-size: 1.15rem;
+        }
+        .btn {
+            background: var(--primary-yellow);
+            color: var(--black);
+            border: none;
+            padding: 1.1rem;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255,214,0,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn:hover {
+            background: var(--black);
+            color: var(--primary-yellow);
+            border: 1.5px solid var(--primary-yellow);
+        }
+        #successMsg, #orderDetails {
+            display: none;
+            margin-top: 2.5rem;
+            color: var(--primary-yellow-dark);
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            background: #232323;
+            border-radius: 10px;
+            padding: 1.5rem 1rem;
+            border: 1px solid var(--primary-yellow-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+        }
+        #orderDetails {
+            color: var(--white);
+            font-weight: 400;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+        #orderDetails strong {
+            color: var(--primary-yellow);
+        }
+        #orderDetails label {
+            color: var(--primary-yellow-dark);
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+        #sendReceiptBtn {
+            background: var(--primary-yellow-dark);
+            color: var(--black);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.2rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        #sendReceiptBtn:hover {
+            background: var(--black);
+            color: var(--primary-yellow-dark);
+            border: 1.5px solid var(--primary-yellow-dark);
+        }
+        #receiptMsg {
+            color: var(--primary-yellow);
+            margin-top: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .checkout-container {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+        .action-btn {
+            background: var(--primary-yellow-dark);
+            color: var(--black);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            min-width: 160px;
+        }
+        .action-btn:hover {
+            background: var(--black);
+            color: var(--primary-yellow-dark);
+            border: 1.5px solid var(--primary-yellow-dark);
+        }
+        .home-btn {
+            background: var(--primary-yellow-dark);
+            color: var(--black);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            min-width: 160px;
+        }
+        .home-btn:hover {
+            background: var(--black);
+            color: var(--primary-yellow-dark);
+            border: 1.5px solid var(--primary-yellow-dark);
+        }
+        .home-btn-small {
+            min-width: 80px;
+            padding: 0.5rem 0.8rem;
+            font-size: 0.92rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <label>Name
+                <input type="text" id="name" required placeholder="Full Name">
+            </label>
+            <label>Email
+                <input type="email" id="email" required placeholder="you@email.com">
+            </label>
+            <label>Shipping Address
+                <input type="text" id="address" required placeholder="Street, City, ZIP">
+            </label>
+            <label>Card Number
+                <input type="text" maxlength="19" id="card" required placeholder="1234 5678 9012 3456">
+            </label>
+            <label>Expiry
+                <input type="text" maxlength="5" id="expiry" required placeholder="MM/YY">
+            </label>
+            <label>CVC
+                <input type="text" maxlength="4" id="cvc" required placeholder="123">
+            </label>
+            <div class="summary" id="orderSummary"></div>
+            <button class="btn" type="submit">Pay Now</button>
+        </form>
+        <div id="orderDetails"></div>
+        <div id="successMsg">
+            Payment successful! Thank you for your order.
+        </div>
+    </div>
+    <script>
+        // Load cart from localStorage and show summary
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let subtotal = cart.reduce((sum, b) => sum + b.price, 0);
+        let tax = subtotal * 0.08;
+        let shipping = cart.length > 0 ? 5.00 : 0.00;
+        let total = subtotal + tax + shipping;
+        document.getElementById('orderSummary').innerHTML = `
+            <strong>Order Summary:</strong><br>
+            Items: ${cart.length}<br>
+            Subtotal: $${subtotal.toFixed(2)}<br>
+            Tax: $${tax.toFixed(2)}<br>
+            Shipping: $${shipping.toFixed(2)}<br>
+            <b>Total: $${total.toFixed(2)}</b>
+        `;
+
+        // Show order summary and ask for receipt after "Pay Now"
+        document.getElementById('checkoutForm').onsubmit = function(e) {
+            e.preventDefault();
+            // Get user info
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+
+            // Hide form
+            document.getElementById('checkoutForm').style.display = 'none';
+
+            // Show order details and ask for receipt
+            document.getElementById('orderDetails').innerHTML = `
+                <strong>Order Placed!</strong><br><br>
+                <b>Name:</b> ${name}<br>
+                <b>Email:</b> ${email}<br>
+                <b>Shipping Address:</b> ${address}<br>
+                <b>Items:</b> ${cart.length}<br>
+                <b>Total Paid:</b> $${total.toFixed(2)}<br>
+                <label>Would you like a receipt sent to your email?</label>
+                <br>
+                <div style="display: flex; gap: 12px; margin-top: 1.2rem; justify-content: flex-start;">
+                    <button id="sendReceiptBtn" class="action-btn">Send Receipt</button>
+                    <div style="flex:1"></div>
+                    <button id="backHomeBtn" class="home-btn home-btn-small">Home</button>
+                </div>
+                <div id="receiptMsg"></div>
+            `;
+            document.getElementById('orderDetails').style.display = 'block';
+            localStorage.removeItem('cart');
+
+            // Handle receipt sending (simulated)
+            document.getElementById('sendReceiptBtn').onclick = function() {
+                document.getElementById('receiptMsg').innerText = 
+                    `A receipt has been sent to ${email}.`;
+                this.disabled = true;
+                this.style.opacity = 0.7;
+            };
+
+            // Handle back to home page
+            document.getElementById('backHomeBtn').onclick = function() {
+                window.location.href = 'index.html';
+            };
+        };
+    </script>
+</body>
+</html>

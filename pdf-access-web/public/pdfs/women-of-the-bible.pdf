@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Downloads</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available PDF Downloads</h1>
+        <div class="pdf-list">
+            <div class="pdf-item">
+                <h2>Faith Foundations</h2>
+                <button class="download-btn" data-pdf="pdfs/faith-foundations.pdf">Download PDF</button>
+            </div>
+            <div class="pdf-item">
+                <h2>Book of John Study</h2>
+                <button class="download-btn" data-pdf="pdfs/book-of-john.pdf">Download PDF</button>
+            </div>
+            <!-- Add more PDF items as needed -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

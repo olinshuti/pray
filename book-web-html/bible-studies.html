@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bible Studies | PRAY BELIEVE RECEIVE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe066 0%, #bfa14a 100%);
+            color: #111;
+            min-height: 100vh;
+        }
+        .navbar-custom {
+            background: #fffbe6;
+            border-bottom: 1.5px solid #e5e7eb;
+            box-shadow: 0 2px 12px rgba(30,34,90,0.08);
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            transition: box-shadow 0.2s;
+        }
+        .navbar-brand {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            color: #111 !important;
+            gap: 0.7rem !important;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand span {
+            color: #111 !important;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            font-size: 1.22rem;
+            transition: color 0.2s;
+            margin-left: 0.5rem;
+        }
+        .navbar-brand img {
+            height: 38px;
+            width: 38px;
+            filter: drop-shadow(0 2px 6px rgba(191,161,74,0.13));
+            transition: transform 0.2s;
+        }
+        .navbar-brand:hover img {
+            transform: scale(1.07) rotate(-3deg);
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+        .navbar-nav .nav-link {
+            color: #111111 !important;
+            font-weight: 600;
+            font-size: 1.08rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: 22px;
+            transition: background 0.18s, color 0.18s;
+            margin: 0 0.1rem;
+        }
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link:hover {
+            background: linear-gradient(90deg, #ffe066 0%, #bfa14a 100%);
+            color: #7c651a !important;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+        }
+        .navbar-toggler {
+            border: none;
+            background: #ffe066;
+            border-radius: 8px;
+            padding: 0.35rem 0.7rem;
+            transition: background 0.2s;
+        }
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #bfa14a;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(191,161,74,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        @media (max-width: 991px) {
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-brand img {
+                height: 30px;
+                width: 30px;
+            }
+            .navbar-brand span {
+                font-size: 0.98rem;
+            }
+            .navbar-custom {
+                padding-top: 0.15rem;
+                padding-bottom: 0.15rem;
+            }
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+        }
+        .bible-header {
+            background: #ffffff;
+            color: #111111;
+            padding: 2.2rem 0 1.7rem 0;
+            text-align: center;
+            border-radius: 0 0 18px 18px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 12px rgba(30,34,90,0.06);
+            border-bottom: 1.5px solid #e5e7eb;
+        }
+        .bible-header h1 {
+            font-family: 'Montserrat', Arial, sans-serif; font-style: bold;
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #111111;
+        }
+        .bible-header p {
+            font-size: 1.13rem; 
+            color: #010100; 
+        }
+        .studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0;
+        }
+        .study-card {
+            background: rgba(2, 209, 246, 0.85);
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.13);
+            backdrop-filter: blur(6px);
+            border: 1.5px solid #020201;
+            overflow: hidden;
+            transition: transform 0.18s, box-shadow 0.18s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 480px;
+        }
+        .study-card:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 16px 40px 0 rgba(191,161,74,0.18);
+            border-color: #bfa14a;
+        }
+        .study-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 2rem 2rem 0 0;
+            box-shadow: 0 2px 12px rgba(191,161,74,0.08);
+        }
+        .study-card-body {
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .study-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #080703;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .study-title .badge {
+            background: linear-gradient(90deg, #ffe066 0%, #bfa14a 100%);
+            color: #12110f;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            margin-left: 0.5rem;
+        }
+        .study-desc {
+            font-size: 1.07rem;
+            color: #222;
+            margin-bottom: 1.3rem;
+            flex: 1 1 auto;
+            line-height: 1.6;
+        }
+        .study-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .study-btn {
+            background: linear-gradient(90deg, #bfa14a 0%, #7c651a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 2rem;
+            padding: 0.6rem 1.7rem;
+            font-weight: 700;
+            font-size: 1.08rem;
+            transition: background 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.13);
+        }
+        .study-btn:hover {
+            background: linear-gradient(90deg, #7c651a 0%, #bfa14a 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(191,161,74,0.18);
+        }
+        .study-btn-outline {
+            background: #fff;
+            color: #090805;
+            border: 1.5px solid #0a0a09;
+            box-shadow: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .study-btn-outline:hover {
+            background: #bfa14a;
+            color: #fff;
+        }
+        .modal-content {
+            border-radius: 18px;
+            border: 1.5px solid #bfa14a;
+        }
+        .modal-header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .modal-title {
+            color: #000000;
+            font-weight: 700;
+        }
+        .modal-body {
+            background: #f5f6fa;
+            color: #111111;
+        }
+        .blockquote {
+            border-left: 4px solid #bfa14a;
+            padding-left: 1rem;
+            color: #111111;
+        }
+        @media (max-width: 991px) {
+            .studies-grid {
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .studies-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                padding: 1rem 0;
+            }
+            .study-card {
+                min-height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar" style="background: var(--white); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo" style="font-size: 2.1rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 0.7rem;">
+                <!-- Alternative Black & White Bible Logo (single book with cross) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="margin-right: 0.6rem;">
+                    <!-- Book shape -->
+                    <rect x="10" y="8" width="34" height="38" rx="5" fill="#fff" stroke="#111" stroke-width="2.5"/>
+                    <!-- Book spine -->
+                    <rect x="10" y="8" width="7" height="38" rx="2" fill="#f5f6fa" stroke="#bbb" stroke-width="1.5"/>
+                    <!-- Cross on cover -->
+                    <line x1="27" y1="20" x2="27" y2="36" stroke="#111" stroke-width="2"/>
+                    <line x1="21" y1="28" x2="33" y2="28" stroke="#111" stroke-width="2"/>
+                    <!-- Page lines -->
+                    <line x1="17" y1="14" x2="39" y2="14" stroke="#eee" stroke-width="1"/>
+                    <line x1="17" y1="18" x2="39" y2="18" stroke="#eee" stroke-width="1"/>
+                    <line x1="17" y1="22" x2="39" y2="22" stroke="#eee" stroke-width="1"/>
+                </svg>
+                PRAY BELIEVE RECEIVE
+            </a>
+            <ul class="nav-links" style="display: flex; gap: 2rem; list-style: none; margin-bottom: 0;">
+                <li><a href="bible-studies.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Bible Studies</a></li>
+                <li><a href="books.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Books</a></li>
+                <li><a href="about.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">About</a></li>
+                <li><a href="contact.html" style="text-decoration: none; color: var(--primary-light); font-weight: 500; transition: color 0.3s;">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bible Studies Header -->
+    <div class="bible-header">
+        <h1>BIBLE STUDIES</h1>
+        <p>Grow your faith with our curated collection of Bible study guides, devotionals, and resources.</p>
+    </div>
+
+    <!-- Bible Studies Grid -->
+    <div class="container mb-5">
+        <div class="studies-grid">
+            <!-- Study Card Example 1 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Faith Foundations">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Faith Foundations
+                        <span class="badge">Popular</span>
+                    </div>
+                    <div class="study-desc">A 6-week study exploring the core beliefs of Christianity and how to apply them in daily life.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewFaith">Preview</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Study Card Example 2 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Book of John Study">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Book of John Study
+                        <span class="badge">New</span>
+                    </div>
+                    <div class="study-desc">Journey through the Gospel of John with daily readings, reflection questions, and prayer prompts.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewJohn">Preview</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Study Card Example 3 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="Women of the Bible">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Women of the Bible
+                        <span class="badge">Classic</span>
+                    </div>
+                    <div class="study-desc">Discover the inspiring stories of women in the Bible and their impact on faith and history.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewWomen">Preview</a>
+                    </div>
+                </div>
+            </div>
+            <!-- New Study Card 4 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Psalms of Comfort">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Psalms of Comfort
+                        <span class="badge">New</span>
+                    </div>
+                    <div class="study-desc">A devotional journey through selected Psalms that offer hope, comfort, and encouragement in difficult times.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewPsalms">Preview</a>
+                    </div>
+                </div>
+            </div>
+            <!-- New Study Card 5 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80" alt="Fruit of the Spirit">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Fruit of the Spirit
+                        <span class="badge">New</span>
+                    </div>
+                    <div class="study-desc">Explore the nine attributes of the Fruit of the Spirit and how to cultivate them in your daily walk with God.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewFruit">Preview</a>
+                    </div>
+                </div>
+            </div>
+            <!-- New Study Card 6 -->
+            <div class="study-card">
+                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="Sermon on the Mount">
+                <div class="study-card-body">
+                    <div class="study-title">
+                        Sermon on the Mount
+                        <span class="badge">Classic</span>
+                    </div>
+                    <div class="study-desc">A verse-by-verse study of Jesus' Sermon on the Mount, focusing on practical application for modern life.</div>
+                    <div class="study-actions">
+                        <a href="#" class="study-btn require-auth" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M12 17v-6m0 0V7m0 4h4m-4 0H8m8 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"></path></svg>
+                            Download PDF
+                        </a>
+                        <a href="#" class="study-btn study-btn-outline" data-bs-toggle="modal" data-bs-target="#previewSermon">Preview</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modals -->
+    <div class="modal fade" id="previewFaith" tabindex="-1" aria-labelledby="previewFaithLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewFaithLabel">Faith Foundations – Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#bfa14a; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Faith Foundations</strong> is a 6-week journey designed to help you understand and apply the essential beliefs of Christianity. Each week covers a core doctrine with practical steps for daily living.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>6 weekly sessions with key Bible passages</li>
+              <li>Reflection questions for personal or group study</li>
+              <li>Simple prayers to strengthen your faith</li>
+              <li>Action steps for real-life application</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>New believers, small groups, or anyone wanting to revisit the basics of Christian faith.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"Now faith is the assurance of things hoped for, the conviction of things not seen."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">Hebrews 11:1</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previewJohn" tabindex="-1" aria-labelledby="previewJohnLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewJohnLabel">Book of John Study - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#bfa14a; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Book of John Study</strong> guides you through the life and teachings of Jesus as recorded by John. Each day features a passage, reflection, and prayer prompt to deepen your understanding and faith.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>Daily readings from the Gospel of John</li>
+              <li>Thought-provoking reflection questions</li>
+              <li>Prayer prompts for personal growth</li>
+              <li>Ideal for individual or group study</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>Anyone seeking to know Jesus more deeply and apply His teachings.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"In the beginning was the Word, and the Word was with God, and the Word was God."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">John 1:1</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previewWomen" tabindex="-1" aria-labelledby="previewWomenLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewWomenLabel">Women of the Bible - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#bfa14a; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Women of the Bible</strong> highlights the stories of courageous and faithful women whose lives shaped biblical history and inspire us today.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>Profiles of key women in Scripture</li>
+              <li>Historical and cultural context</li>
+              <li>Discussion and reflection questions</li>
+              <li>Encouragement for women of all ages</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>Women's groups, personal study, or anyone interested in biblical role models.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"She is clothed with strength and dignity; she can laugh at the days to come."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">Proverbs 31:25</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previewPsalms" tabindex="-1" aria-labelledby="previewPsalmsLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewPsalmsLabel">Psalms of Comfort - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#f3ca13; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Psalms of Comfort</strong> is a devotional journey through selected Psalms that offer hope, comfort, and encouragement in difficult times. Each session includes a Psalm, a short reflection, and a prayer.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>Handpicked comforting Psalms</li>
+              <li>Short, uplifting reflections</li>
+              <li>Prayers for peace and reassurance</li>
+              <li>Encouragement for challenging seasons</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>Anyone seeking comfort, hope, or encouragement from God's Word.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"The Lord is my shepherd; I shall not want."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">Psalm 23:1</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previewFruit" tabindex="-1" aria-labelledby="previewFruitLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewFruitLabel">Fruit of the Spirit - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#bfa14a; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Fruit of the Spirit</strong> explores the nine attributes described in Galatians 5 and provides practical ways to cultivate them in your daily walk with God.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>In-depth look at each fruit: love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control</li>
+              <li>Personal reflection and application</li>
+              <li>Scripture readings and prayers</li>
+              <li>Growth challenges for each attribute</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>Anyone wanting to grow in Christlike character and spiritual maturity.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control..."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">Galatians 5:22-23</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previewSermon" tabindex="-1" aria-labelledby="previewSermonLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewSermonLabel">Sermon on the Mount - Preview</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="background:#f6f7fb;">
+            <h6 class="mb-2" style="color:#bfa14a; font-weight:700;">Quick Overview</h6>
+            <p>
+              <strong>Sermon on the Mount</strong> is a verse-by-verse study of Jesus' most famous sermon, focusing on practical application for modern life and spiritual growth.
+            </p>
+            <ul style="margin-bottom:1rem;">
+              <li>Detailed exploration of Matthew 5–7</li>
+              <li>Life application and discussion prompts</li>
+              <li>Prayer and reflection for each section</li>
+              <li>Ideal for personal or group study</li>
+            </ul>
+            <div class="mb-3">
+              <span style="font-weight:600; color:#7c651a;">Perfect for:</span>
+              <span>Anyone seeking to live out Jesus’ teachings in everyday life.</span>
+            </div>
+            <blockquote class="blockquote" style="background:#fffbe6; border-radius:8px; padding:1rem;">
+              <p class="mb-0" style="font-size:1.05rem;">"Blessed are the peacemakers, for they shall be called sons of God."</p>
+              <footer class="blockquote-footer mt-1" style="color:#bfa14a;">Matthew 5:9</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign In / Sign Up Modal (for PDF downloads) -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:18px; border: 2px solid #bfa14a;">
+          <div class="modal-header" style="background:#fffbe6; border-bottom: 1px solid #bfa14a;">
+            <h5 class="modal-title" id="authModalLabel" style="color:#bfa14a; font-weight:700;">Sign In Required</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="text-align:center; background: #fffde7;">
+            <p class="mb-3" style="color:#111111;">You must create an account or sign in to download Bible study PDFs.</p>
+            <!-- Tabs for Create Account / Sign In -->
+            <ul class="nav nav-tabs justify-content-center mb-3" id="authTab" role="tablist" style="border-bottom: 2px solid #bfa14a;">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-tab-pane" type="button" role="tab" aria-controls="signup-tab-pane" aria-selected="true" style="color:#111111; font-weight:600; border: 1px solid #bfa14a; background: #ffe066;">Create Account</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin-tab-pane" type="button" role="tab" aria-controls="signin-tab-pane" aria-selected="false" style="color:#111111; font-weight:600; border: 1px solid #bfa14a; background: #ffe066;">Sign In</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="authTabContent">
+              <!-- Create Account Form -->
+              <div class="tab-pane fade show active" id="signup-tab-pane" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
+                <form>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Full Name" required style="border:1.5px solid #bfa14a; color:#111111;">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email" required style="border:1.5px solid #bfa14a; color:#111111;">
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" required style="border:1.5px solid #bfa14a; color:#111111;">
+                  </div>
+                  <button type="submit" class="btn w-100" style="background:#bfa14a; color:#111111; font-weight:700;">Create Account</button>
+                </form>
+              </div>
+              <!-- Sign In Form -->
+              <div class="tab-pane fade" id="signin-tab-pane" role="tabpanel" aria-labelledby="signin-tab" tabindex="0">
+                <form>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email" required style="border:1.5px solid #bfa14a; color:#111111;">
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" required style="border:1.5px solid #bfa14a; color:#111111;">
+                  </div>
+                  <button type="submit" class="btn w-100" style="background:#111111; color:#ffe066; font-weight:700;">Sign In</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional: Reuse account/cart modals from index.html if needed -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Simulate authentication state
+    let isAuthenticated = false;
+
+    // Map study titles to their PDF file paths
+    const pdfLinks = {
+        "Faith Foundations": "pdfs/faith-foundations.pdf",
+        "Book of John Study": "pdfs/book-of-john.pdf",
+        "Women of the Bible": "pdfs/women-of-the-bible.pdf",
+        "Psalms of Comfort": "pdfs/psalms-of-comfort.pdf",
+        "Fruit of the Spirit": "pdfs/fruit-of-the-spirit.pdf",
+        "Sermon on the Mount": "pdfs/sermon-on-the-mount.pdf"
+    };
+
+    // Helper to unlock download buttons
+    function unlockDownloadButtons() {
+        document.querySelectorAll('.study-card').forEach(function(card) {
+            const title = card.querySelector('.study-title')?.textContent?.trim();
+            const downloadBtn = card.querySelector('.study-btn');
+            if (downloadBtn && pdfLinks[title]) {
+                downloadBtn.classList.remove('require-auth');
+                downloadBtn.removeAttribute('data-bs-toggle');
+                downloadBtn.removeAttribute('data-bs-target');
+                downloadBtn.setAttribute('href', pdfLinks[title]);
+                downloadBtn.setAttribute('download', '');
+                downloadBtn.textContent = 'Download PDF';
+            }
+        });
+    }
+
+    // Handle Create Account form submit
+    document.querySelector('#signup-tab-pane form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        isAuthenticated = true;
+        // Close modal
+        var authModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('authModal'));
+        authModal.hide();
+
+        unlockDownloadButtons();
+
+        // Optional: Show a toast or alert
+        setTimeout(function() {
+            alert('Account created! You can now download the PDF studies.');
+        }, 300);
+    });
+
+    // Optionally, handle sign in the same way
+    document.querySelector('#signin-tab-pane form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        isAuthenticated = true;
+        var authModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('authModal'));
+        authModal.hide();
+
+        unlockDownloadButtons();
+
+        setTimeout(function() {
+            alert('Signed in! You can now download the PDF studies.');
+        }, 300);
+    });
+});
+</script>
+</body>
+</html>
